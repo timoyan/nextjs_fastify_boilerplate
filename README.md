@@ -54,7 +54,7 @@ yarn build
 -   Build docker image
 
 ```shell
-docker build
+docker build .
 ```
 
 -   Run docker image as container
