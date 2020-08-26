@@ -1,0 +1,10 @@
+node_modules
+app-dist
+jest.config.js
+fixtures
+coverage
+.next
+tsconfig.json
+package.json
+next.config.js
+server-dist

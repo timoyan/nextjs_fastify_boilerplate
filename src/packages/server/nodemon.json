@@ -1,0 +1,5 @@
+{
+    "watch": ["index.ts", "app"],
+    "exec": "yarn build && npx node --max-http-header-size 800000 ../../../server-dist/index.js",
+    "ext": "js ts tsx"
+}

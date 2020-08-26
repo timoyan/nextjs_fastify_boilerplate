@@ -1,0 +1,48 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "attach",
+            "name": "Launch Program",
+            "skipFiles": ["<node_internals>/**"],
+            "port": 9229
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Next: Chrome",
+            "url": "http://localhost:3000",
+            "webRoot": "${workspaceFolder}"
+        },
+        {
+            "name": "Next: Node",
+            "type": "node",
+            "request": "launch",
+            "runtimeArgs": ["--nolazy", "-r", "ts-node/register"],
+            "args": ["${workspaceRoot}/src/packages/server/index.ts"],
+            "cwd": "${workspaceRoot}",
+            "outFiles": [
+                "${workspaceFolder}/server-dist/**/*.js",
+                "${workspaceFolder}/app-dist/server/**/*.js"
+            ],
+            "protocol": "inspector",
+            "internalConsoleOptions": "openOnSessionStart",
+            "sourceMaps": true,
+            "autoAttachChildProcesses": true,
+            "env": {
+                "TS_NODE_PROJECT": "src/packages/server/tsconfig.json",
+                "TS_NODE_FILES": "true",
+                "PORT": "3000",
+                "ENV": "local",
+                "ADDRESS": "localhost"
+            }
+        }
+    ],
+    "compounds": [
+        {
+            "name": "Next: Full",
+            "configurations": ["Next: Node", "Next: Chrome"]
+        }
+    ]
+}

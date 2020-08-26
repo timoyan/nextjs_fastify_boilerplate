@@ -1,0 +1,21 @@
+{
+    "compileOnSave": false,
+    "compilerOptions": {
+        "strict": true,
+        "target": "es5",
+        "module": "commonjs",
+        "jsx": "react",
+        "allowJs": true,
+        "moduleResolution": "node",
+        "allowSyntheticDefaultImports": true,
+        "sourceMap": true,
+        "lib": ["dom", "es7"]
+    },
+    "exclude": [
+        "./node_modules/**/*",
+        "./src/packages/app/next.config.js",
+        "./server-dist",
+        "./app-dist"
+    ],
+    "include": ["./src/**/*"]
+}

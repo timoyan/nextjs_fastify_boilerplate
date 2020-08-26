@@ -1,0 +1,21 @@
+{
+    "name": "@web/server",
+    "version": "0.1.0",
+    "main": "index.js",
+    "author": "Timo Yan",
+    "private": true,
+    "scripts": {
+        "dev": "npx cross-env ENV=local nodemon",
+        "build": "npx tsc -p tsconfig.json",
+        "start": "yarn build && npx cross-env ENV=local NODE_ENV=production HOST=0.0.0.0 node --max-http-header-size 80000 ../../../server-dist/index.js"
+    },
+    "dependencies": {
+        "fastify": "^3.3.0",
+        "next": "^9.5.2",
+        "dotenv": "^8.2.0",
+        "prom-client": "^12.0.0"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.4"
+    }
+}
