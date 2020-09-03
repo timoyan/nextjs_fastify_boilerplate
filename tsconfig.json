@@ -14,8 +14,12 @@
     "exclude": [
         "./node_modules/**/*",
         "./src/packages/app/next.config.js",
-        "./server-dist",
-        "./app-dist"
+        "./**/*/prettier.config.js",
+        "./**/*/babel.config.js",
+        "./server-dist/**/*",
+        "./app-dist/**/*",
+        "./src/packages/app/app-dist/**/*"
     ],
-    "include": ["./src/**/*"]
+    "include": ["./src/**/*"],
+    "files": ["./__global.d.ts", "stylis-rtl.d.ts"]
 }

@@ -8,14 +8,16 @@ Integrate [NextJS](https://nextjs.org/), [fastify](fastify), [Emotion](https://e
 -   Platform routing instead of file system routing, it only works with custom server.
 -   Use emotion as css-in-js framework, it support both client and server side.
 -   Basic setup of Prometheus metrics.
+-   Add RTL support.
 
 ## How to run it
 
 Execute `yarn ci` to install packages and make lerna scoped packages work.
 
 ### Local environment
+
 If you want to have SSL in local, please generate certification by yourself and put cert.pem and key.pem in folder `src/packages/server/certs`. <br/>
-You can refer and change the code here https://github.com/timoyan/nextjs_fastify_boilerplate/blob/master/src/packages/server/index.ts#L19 
+You can refer and change the code here https://github.com/timoyan/nextjs_fastify_boilerplate/blob/master/src/packages/server/index.ts#L19
 
 #### APP
 

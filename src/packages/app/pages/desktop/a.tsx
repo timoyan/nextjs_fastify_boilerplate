@@ -12,8 +12,8 @@ const Demo: NextPage<IDemoProps> = ({ platform, userAgent, chUAMobile }) => {
     return (
         <>
             <p>HI This is {platform} </p>
-            <p>User Agent is {userAgent}</p>
-            <p>Client Hint ua-mobile is {chUAMobile}</p>
+            <p css={{ marginLeft: '30px' }}>User Agent is {userAgent}</p>
+            <p css={{ marginLeft: '30px' }}>Client Hint ua-mobile is {chUAMobile}</p>
         </>
     );
 };

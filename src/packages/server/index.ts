@@ -44,6 +44,19 @@ fastifyServer.register((instance, opts, nextFunc) => {
             serverRuntimeConfig: {
                 basePath: process.env.BASE_PATH || '123',
             },
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            webpack(config: any, options: any) {
+                config.module.rules.push({
+                    test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
+                    use: {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 100000,
+                        },
+                    },
+                });
+                return config;
+            },
         },
     });
 

@@ -10,10 +10,17 @@ import Document, {
 } from 'next/document';
 import React from 'react';
 
-class MyDocument extends Document {
-    static async getInitialProps(ctx: DocumentContext): Promise<DocumentInitialProps> {
+interface IMyDocumentProps {
+    isRTL: boolean;
+}
+
+class MyDocument extends Document<IMyDocumentProps> {
+    static async getInitialProps(
+        ctx: DocumentContext
+    ): Promise<DocumentInitialProps & IMyDocumentProps> {
         const initialProps = await Document.getInitialProps(ctx);
         const styles = extractCritical(initialProps.html);
+        const isRTL = true;
 
         return {
             ...initialProps,
@@ -26,6 +33,7 @@ class MyDocument extends Document {
                     />
                 </>
             ),
+            isRTL,
         };
     }
 
@@ -34,8 +42,10 @@ class MyDocument extends Document {
             serverRuntimeConfig,
         }: { serverRuntimeConfig: IServerRuntimeConfig } = getConfig();
 
+        const { isRTL } = this.props;
+
         return (
-            <html lang={'en'}>
+            <html lang={'en'} dir={isRTL ? 'rtl' : 'ltr'}>
                 <title>Website</title>
                 <Head>
                     <meta charSet="utf-8" />
