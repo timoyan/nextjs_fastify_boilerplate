@@ -1,5 +1,6 @@
-import { PlatformType } from '@web/types/base';
+import { IBasePageProps, PlatformType } from '@web/types/base';
 import { GetServerSideProps, NextPage } from 'next';
+import Head from 'next/head';
 import React from 'react';
 
 interface IDemoProps {
@@ -8,12 +9,21 @@ interface IDemoProps {
     chUAMobile: string;
 }
 
-const Demo: NextPage<IDemoProps> = ({ platform, userAgent, chUAMobile }) => {
+const Demo: NextPage<IDemoProps & IBasePageProps> = ({
+    platform,
+    userAgent,
+    chUAMobile,
+    baseObject,
+}) => {
     return (
         <>
+            <Head>
+                <title>Desktop A</title>
+            </Head>
             <p>HI This is {platform} </p>
             <p css={{ marginLeft: '30px' }}>User Agent is {userAgent}</p>
             <p css={{ marginLeft: '30px' }}>Client Hint ua-mobile is {chUAMobile}</p>
+            <p css={{ marginLeft: '30px' }}>{JSON.stringify(baseObject)}</p>
         </>
     );
 };

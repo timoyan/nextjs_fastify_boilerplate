@@ -1,5 +1,6 @@
 import { PlatformType } from '@web/types/base';
 import { GetServerSideProps, NextPage } from 'next';
+import Head from 'next/head';
 import React from 'react';
 
 interface IDemoProps {
@@ -11,6 +12,9 @@ interface IDemoProps {
 const Demo: NextPage<IDemoProps> = ({ platform, userAgent, chUAMobile }) => {
     return (
         <>
+            <Head>
+                <title>Mobile A</title>
+            </Head>
             <p>HI This is {platform} </p>
             <p>User Agent is {userAgent}</p>
             <p>Client Hint ua-mobile is {chUAMobile}</p>

@@ -20,7 +20,7 @@ class MyDocument extends Document<IMyDocumentProps> {
     ): Promise<DocumentInitialProps & IMyDocumentProps> {
         const initialProps = await Document.getInitialProps(ctx);
         const styles = extractCritical(initialProps.html);
-        const isRTL = true;
+        const isRTL = false;
 
         return {
             ...initialProps,

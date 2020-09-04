@@ -10,3 +10,7 @@ export interface IServerRuntimeConfig {
 }
 
 export type PlatformType = 'DESKTOP' | 'MOBILE';
+
+export interface IBasePageProps {
+    baseObject: Record<string, unknown> & { isFromBase: boolean };
+}

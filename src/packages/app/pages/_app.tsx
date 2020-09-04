@@ -1,6 +1,7 @@
 import createCache from '@emotion/cache';
 import { CacheProvider } from '@emotion/core';
 import { IRootState, makeStore } from '@web/reducers';
+import { IBasePageProps } from '@web/types/base';
 // import { globalStyles } from '@web/styles';
 import { isDebug } from '@web/utilities/is';
 import { NextComponentType } from 'next';
@@ -11,14 +12,15 @@ import React from 'react';
 import { AnyAction } from 'redux';
 import stylisRtl from 'stylis-rtl';
 
-export interface IMyAppProps extends AppProps {
+export interface IMyAppProps extends IBasePageProps {
     isRTL: boolean;
 }
 
-const MyApp: NextComponentType<AppContext, AppInitialProps, IMyAppProps> = ({
+const MyApp: NextComponentType<AppContext, AppInitialProps, IMyAppProps & AppProps> = ({
     Component,
     pageProps,
     isRTL,
+    baseObject,
 }) => {
     return (
         <CacheProvider
@@ -27,15 +29,18 @@ const MyApp: NextComponentType<AppContext, AppInitialProps, IMyAppProps> = ({
             })}
         >
             {/*  {globalStyles} */}
-            <Component {...pageProps} />
+            <Component {...pageProps} baseObject={baseObject} />
         </CacheProvider>
     );
 };
 
 MyApp.getInitialProps = async (appContext) => {
     const appProps = await App.getInitialProps(appContext);
-    const isRTL = true;
-    return { ...appProps, isRTL };
+    const myAppProps: IMyAppProps = {
+        isRTL: false,
+        baseObject: { isFromBase: true },
+    };
+    return { ...appProps, ...myAppProps };
 };
 
 const wrapper = createWrapper<IRootState, AnyAction>(makeStore, {
