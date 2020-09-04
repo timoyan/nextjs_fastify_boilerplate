@@ -1,6 +1,6 @@
 # nextjs_fastify_boilerplate
 
-Integrate [NextJS](https://nextjs.org/), [fastify](fastify), [Emotion](https://emotion.sh/) and other basic configurations.
+Integrate [NextJS](https://nextjs.org/), [fastify](https://www.fastify.io/), [Emotion](https://emotion.sh/) and other basic configurations.
 
 ## What it has
 
