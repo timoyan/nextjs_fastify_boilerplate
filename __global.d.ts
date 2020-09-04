@@ -12,3 +12,11 @@ declare global {
 
 declare module '*.png';
 declare module '*.svg';
+
+import { Interpolation } from '@emotion/core';
+
+declare module 'react' {
+    interface HTMLAttributes<T> extends DOMAttributes<T> {
+        css?: Interpolation<unknown>;
+    }
+}
