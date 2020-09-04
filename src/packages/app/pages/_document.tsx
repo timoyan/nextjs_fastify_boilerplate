@@ -5,6 +5,7 @@ import Document, {
     DocumentContext,
     DocumentInitialProps,
     Head,
+    Html,
     Main,
     NextScript,
 } from 'next/document';
@@ -45,8 +46,7 @@ class MyDocument extends Document<IMyDocumentProps> {
         const { isRTL } = this.props;
 
         return (
-            <html lang={'en'} dir={isRTL ? 'rtl' : 'ltr'}>
-                <title>Website</title>
+            <Html lang={'en'} dir={isRTL ? 'rtl' : 'ltr'}>
                 <Head>
                     <meta charSet="utf-8" />
                     <meta name="description" content="Web" />
@@ -60,7 +60,7 @@ class MyDocument extends Document<IMyDocumentProps> {
                     <Main />
                     <NextScript />
                 </body>
-            </html>
+            </Html>
         );
     }
 }
