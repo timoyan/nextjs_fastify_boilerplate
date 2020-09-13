@@ -6,6 +6,7 @@ export interface IEpicDependency {
 
 export interface IServerRuntimeConfig {
     basePath: string;
+    serviceEnv: string;
     [key: string]: string;
 }
 

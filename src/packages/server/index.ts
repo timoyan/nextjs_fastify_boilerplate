@@ -10,7 +10,7 @@ const fs = require('fs');
 const path = require('path');
 
 const port = parseInt(process.env.PORT || '443', 10);
-const isLocal = process.env.ENV === 'local';
+const isLocal = process.env.SERVICE_ENV === 'local';
 const address = process.env.ADDRESS || '0.0.0.0';
 const metricsInterval = Prometheus.collectDefaultMetrics();
 
@@ -43,6 +43,7 @@ fastifyServer.register((instance, opts, nextFunc) => {
             distDir: 'app-dist',
             serverRuntimeConfig: {
                 basePath: process.env.BASE_PATH || '123',
+                serviceEnv: process.env.SERVICE_ENV,
             },
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             webpack(config: any, options: any) {
