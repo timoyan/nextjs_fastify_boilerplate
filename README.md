@@ -80,3 +80,4 @@ Chrome should be opened and will refresh once nodeJS setup is ready.
 ## TODO
 
 -   Add jest
+-   Add redux hydration sample
