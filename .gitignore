@@ -15,3 +15,4 @@ app-dist
 server-dist
 
 src/packages/server/certs
+.DS_Store
